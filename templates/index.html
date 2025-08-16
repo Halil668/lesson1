@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .calculator {
+            background-color: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input[type="number"],
+        select,
+        button {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 1rem;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #007b55;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 500px) {
+            .calculator {
+                padding: 20px;
+                border-radius: 15px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>HESAP MAKINESI</h2>
+        <form method="post">
+            <input type="number" name="num1" placeholder="Birinci sayi" step="any" required>
+            <input type="number" name="num2" placeholder="Ikinci sayi" step="any" required>
+            <select name="operation" required>
+                <option value="add">Topla</option>
+                <option value="subtract">Cikar</option>
+                <option value="multiply">Carp</option>
+                <option value="divide">Bol</option>
+            </select>
+            <button type="submit">HESAPLA</button>
+        </form>
+        {% if result is not none %}
+            <div class="result">SONUC: {{ result }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
